@@ -47,14 +47,14 @@ body {
 }
 .colo2 {
     flex: 33%;
-    background-color: lightgray;
+    background-color:rgb(188,189,190);
     padding: 20px;
 }
 
 
 .colo3 {
     flex: 33%;
-    background-color: gray;
+    background-color:rgb(209,206,206);
     padding: 20px;
 }
 
@@ -66,12 +66,14 @@ body {
 
 @media screen and (max-width: 600px) {
 
-    .colo1, .colo2 {
+    .colo1, .colo3 {
         flex: 40%;
     }
-    .colo3{
+    .colo2{
         flex-wrap: wrap;
         flex-grow: 3;
+        order: 3;
+        
     }
 }
 
