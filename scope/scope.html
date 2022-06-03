@@ -1,0 +1,122 @@
+ <!-- 1.  -->
+ let grapes = "green"; 
+
+ function fruits(){ 
+
+     return function(message){ 
+         return grapes; 
+     } 
+ } 
+ console.log(fruits()()); 
+<!-- 1.Print out green because we returning the value in the global variable -->
+
+ <!-- 2.  -->
+ let x = 10; 
+
+ function globalVar(){ 
+
+     return function(){ 
+
+        return x; 
+     } 
+ } 
+ x = 20; 
+
+ let fn = globalVar(); 
+
+ console.log(fn ()); 
+
+<!-- 2. Return 20 because we reassigned x before we call our function. -->
+ 
+ <!-- 3.  -->
+ function sport(message){ 
+
+     message = "Hi"; 
+
+     return function(message){ 
+
+        return message; 
+     } 
+ } 
+
+ let sportFn = sport("Hello"); 
+
+ console.log(sportFn ()); 
+
+<!-- 3. Undefined because we don’t the returned function expects an arguement
+ which we haven’t passed during the call.
+  -->
+ <!-- 4.  -->
+ function test(x){ 
+
+     x = 10; 
+
+     x++; 
+
+     return function(){ 
+
+         return x++; 
+
+     } 
+
+ } 
+
+ console.log(test(2)()) 
+ 
+ <!-- 4. 11 because we first reasign the argument x with 10 and increment x. 
+ Then during the return in the inner function the value of x is 11 so that is what we printed. If the increment was before like ++x then the value will be 12 because we return after incrementing the
+  current x value -->
+
+ <!-- 5. -->
+ function car(){ 
+
+    let color = "white"; 
+
+     function seat(){ 
+
+         let color = "brown"; 
+         console.log(color)//_____
+     } 
+     console.log(color)//_____
+ } 
+
+ car("black") 
+<!-- 5. White will be printed in the console. Because we override 
+the arguement value with white. The inner function will 
+not show anything because we never call it. -->
+
+ <!-- 6.  -->
+ function department(){ 
+
+   let numberOfDepartments = 5; 
+   console.log(numberOfDepartments);
+   function software(){ 
+
+        let language = "javascript"; 
+        console.log(language)
+    } 
+     console.log(language) 
+ } 
+
+ department() 
+<!-- 6. 5 will be printed in the console and then we got a reference error 
+bacause we are trying to access the language variable out side it’s scope. 
+Language is private variable for the function seat. -->
+ 
+  <!-- 7.  -->
+ function department(language){ 
+
+     let numberOfDepartments = 5; 
+    console.log(numberOfDepartments)
+    function software(){ 
+
+         let language = "javascript"; 
+         console.log(language);
+    } 
+    console.log(language) 
+ } 
+<!-- 7. 5 and Java will be printed out in the console. -->
+ Because now language is know element inside the function 
+ department and the value that is provided as arguement was Java. The inner 
+ function will not show
+ anything because it never been called
